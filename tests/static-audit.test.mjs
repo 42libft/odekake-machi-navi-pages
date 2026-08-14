@@ -73,6 +73,6 @@ test("contains only the approved public project surfaces", async () => {
     "tsconfig.json",
     "vite.config.ts",
   ]);
-  const entries = new Set((await readdir(root)).filter((entry) => !["dist", "node_modules"].includes(entry)));
+  const entries = new Set((await readdir(root)).filter((entry) => ![".git", "dist", "node_modules"].includes(entry)));
   assert.deepEqual([...entries].sort(), [...allowed].sort());
 });
